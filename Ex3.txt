@@ -1,0 +1,37 @@
+
+Задание:
+В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, 
+в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». 
+Если у продукта нет категорий, то его имя все равно должно выводиться.
+
+Возникают некоторе затруднения всвязи с отсутствием схемы базы данных. Могу преположить, 
+что используется либо отношениe "Many to Many"
+
+CREATE TABLE Products (
+  name varchar(20) NOT NULL,
+  id int NOT NULL,
+  PRIMARY KEY (id)
+ );
+ 
+ CREATE TABLE Cetegories (
+  name varchar(20) NOT NULL,
+  id int NOT NULL,
+  PRIMARY KEY (id)
+ );
+ 
+ CREATE TABLE Products_Cetegories(
+  product_id int NOT NULL,
+  category_id int NOT NULL,
+  PRIMARY KEY (product_id, category_id)  
+ );
+
+SELECT Products.name, Cetegories.name
+FROM Products left join Products_Cetegories
+ON Products.id = Products_Cetegories.product_id 
+left join Cetegories 
+on Products_Cetegories.category_id = Cetegories.id
+
+
+
+
+
