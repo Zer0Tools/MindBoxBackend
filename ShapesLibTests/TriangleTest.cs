@@ -59,7 +59,8 @@ public class TriangleTests
         Assert.IsFalse(triangle.IsRight(), $"Triangle not right with sides: {triangle.SideA}, {triangle.SideB}, {triangle.SideC}");
 
         triangle.SetSides(8, 20, 16);
-        Assert.IsFalse(triangle.IsRight(), $"Triangle not right with sides: {triangle.SideA}, {triangle.SideB}, {triangle.SideC}");                                 
+        Assert.IsFalse(triangle.IsRight(), $"Triangle not right with sides: {triangle.SideA}, {triangle.SideB}, {triangle.SideC}");  
+                             
     }
 
 

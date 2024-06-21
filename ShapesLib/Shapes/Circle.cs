@@ -1,8 +1,15 @@
 
 
 namespace ShapesLib;
+
+/// <summary>
+/// Circle shape
+/// </summary>
 public class Circle : Shape
 {
+    /// <summary>
+    /// Get or sets radius of circle
+    /// </summary>
     public float Radius 
     {
         get => _radius; 
@@ -12,6 +19,10 @@ public class Circle : Shape
     private float _area;
     private bool _isChanged;
 
+    /// <summary>
+    /// Create circle with radius
+    /// </summary>
+    /// <param name="radius"></param>
     public Circle( float radius )
     {
         Radius = radius;

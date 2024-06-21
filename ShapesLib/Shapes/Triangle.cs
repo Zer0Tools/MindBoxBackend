@@ -1,17 +1,32 @@
 namespace ShapesLib;
 
+
+/// <summary>
+/// Triangle shape
+/// </summary>
 public class Triangle : Shape
 {
+    /// <summary>
+    /// Get or set side
+    /// </summary>
     public float SideA 
     {
         get => _sideA; 
         set => SetSide(ref value, ref _sideA, ref _sideB, ref _sideC);
     }
+
+    /// <summary>
+    /// Get or set side
+    /// </summary>    
     public float SideB 
     {
         get => _sideB; 
         set => SetSide(ref value, ref _sideB, ref _sideA, ref _sideC);
     }
+
+    /// <summary>
+    /// Get or set side
+    /// </summary>    
     public float SideC 
     {
         get => _sideC; 
@@ -25,11 +40,24 @@ public class Triangle : Shape
     private bool _shouldRecalculateArea;
     private bool _shouldCheckRight;
 
+    /// <summary>
+    /// Create triangle wits sides
+    /// </summary>
+    /// <param name="sideA"></param>
+    /// <param name="sideB"></param>
+    /// <param name="sideC"></param>
     public Triangle(float sideA, float sideB, float sideC)
     {
         SetSides(sideA, sideB, sideC);
     }
 
+    /// <summary>
+    /// Set triangle sides
+    /// </summary>
+    /// <param name="sideA"></param>
+    /// <param name="sideB"></param>
+    /// <param name="sideC"></param>
+    /// <exception cref="ArgumentException"></exception>
     public void SetSides(float sideA, float sideB, float sideC)
     {
         if(sideA < 0)
@@ -46,7 +74,6 @@ public class Triangle : Shape
         CheckRight();        
     }
 
-    
     public override float GetArea()
     {
         if(_shouldRecalculateArea)
@@ -57,6 +84,10 @@ public class Triangle : Shape
         return _area;
     }
 
+    /// <summary>
+    /// Check if triangle is right(angle is 90 degrees)
+    /// </summary>
+    /// <returns> returns true if right </returns>
     public bool IsRight()
     {
         if(_shouldCheckRight)
